@@ -1,0 +1,46 @@
+﻿<Window x:Name="frmGerador" x:Class="GeradorSQL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GeradorSQL"  Height="685.525" Width="1124.81" ResizeMode="NoResize" KeyDown="Window_KeyDown_1" WindowStartupLocation="Manual" Icon="icon-.ico" ScrollViewer.HorizontalScrollBarVisibility="Visible" >
+    <Grid Margin="0,0,-218,-272">
+        <Label Content="GeradorSQL" HorizontalAlignment="Left" Margin="34,27,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnSubmit" Content="GerarSQL - F3" HorizontalAlignment="Left" Margin="439,568,0,0" VerticalAlignment="Top" Width="83" Height="45" Click="btnSubmit_Click"/>
+        <Label Content="Nome da Tabela" HorizontalAlignment="Left" Margin="31,63,0,0" VerticalAlignment="Top" FontSize="13"/>
+        <TextBox x:Name="ttbNomeTabela" HorizontalAlignment="Left" Height="23" Margin="135,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="13" TabIndex="1" KeyUp="ttbNomeTabela_KeyUp"/>
+        <Label Content="Nome da Coluna" HorizontalAlignment="Left" Margin="53,121,0,0" VerticalAlignment="Top" FontSize="13"/>
+        <TextBox x:Name="ttbNomeCampo" HorizontalAlignment="Left" Height="23" Margin="169,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="13" TabIndex="2" KeyUp="ttbNomeCampo_KeyUp"/>
+        <Button x:Name="btnInserir" Content="Inserir - F1" HorizontalAlignment="Left" Margin="417,165,0,0" VerticalAlignment="Top" Width="83" Height="45" Click="btnInserir_Click" TabIndex="4"/>
+
+        <DataGrid AutoGenerateColumns="False" Height="292" HorizontalAlignment="Left" Margin="34,256,0,0" x:Name="dgvBanco" VerticalAlignment="Top" Width="488" ItemsSource="{Binding}" IsReadOnly="True" BorderBrush="#FF678099" FontSize="14" HorizontalGridLinesBrush="Black" AlternationCount="2" RowBackground="#FFBBBFF5" 
+                    	AlternatingRowBackground="White" Background="#FFF1F1F1" SelectionChanged="dgvBanco_SelectionChanged" MouseDoubleClick="dgvBanco_MouseDoubleClick" ToolTip="Para alterar use o Double Click na linha desejada! ">
+          
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="30" Binding="{Binding codigo}" Header="" />
+                <DataGridTextColumn Width="150" Binding="{Binding nome}" Header="Coluna" />
+                <DataGridTextColumn Width="150" Binding="{Binding atributo}" Header="Atributo" />
+                <DataGridTextColumn Width="150" Binding="{Binding tipo}" Header="Tipo" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <CheckBox x:Name="cbUtiliza" Content="Utilizar o mesmo nome do banco para a Classe?" HorizontalAlignment="Left" Margin="68,165,0,0" VerticalAlignment="Top" FontSize="13" Click="cbUtiliza_Click"/>
+        <Label Content="Campos referentes a coluna do Banco e os atributos da Classe" HorizontalAlignment="Left" Margin="29,225,0,0" VerticalAlignment="Top" FontSize="13"/>
+        <Label x:Name="lblAtributo" Content="Nome do Atributo" HorizontalAlignment="Left" Margin="53,165,0,0" VerticalAlignment="Top" FontSize="13"/>
+        <TextBox x:Name="ttbNomeCampoAtributo" HorizontalAlignment="Left" Height="23" Margin="169,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="13" TabIndex="3"/>
+        <RichTextBox x:Name="rtbCodigoSQL" HorizontalAlignment="Left" Height="547" Margin="585,66,0,0" VerticalAlignment="Top" Width="492" FontSize="14" VerticalScrollBarVisibility="Visible">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Rectangle Fill="#FF8787FF" HorizontalAlignment="Left" Height="9" Stroke="Black" VerticalAlignment="Top" Width="1280" Margin="0,1,0,0"/>
+        <Label Content="*" HorizontalAlignment="Left" Margin="294,121,0,0" VerticalAlignment="Top" ToolTip="Atenção, é importante que o primeiro  campo a ser inserido seja a Primary Key" Foreground="Red"/>
+        <Button x:Name="btnRetirar" Content="Retirar - F2" HorizontalAlignment="Left" Margin="34,568,0,0" VerticalAlignment="Top" Width="83" Height="45" TabIndex="4" Click="btnRetirar_Click" ToolTip="Selecione uma Linha e Precisone Retirar"/>
+        <Label Content="Nome da Classe" HorizontalAlignment="Left" Margin="276,63,0,0" VerticalAlignment="Top" FontSize="13"/>
+        <TextBox x:Name="ttbNomeClasse" HorizontalAlignment="Left" Height="23" Margin="380,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="13" TabIndex="1"/>
+        <ComboBox x:Name="cbbTipo" HorizontalAlignment="Left" Margin="380,121,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <Label Content="Tipo" HorizontalAlignment="Left" Margin="328,117,0,0" VerticalAlignment="Top" FontSize="13"/>
+
+
+
+    </Grid>
+</Window>
